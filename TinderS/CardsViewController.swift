@@ -12,6 +12,7 @@ class CardsViewController: UIViewController {
     @IBOutlet weak var cardImageView: UIImageView!
     var cardInitialCenter: CGPoint!
     var rotation: CGFloat!
+    let screenSize: CGRect = UIScreen.main.bounds
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +54,6 @@ class CardsViewController: UIViewController {
         }
         // In the changed state
         else if sender.state == .changed {
-
             cardImageView.transform = CGAffineTransform.identity
 
             cardImageView.center = CGPoint(x: cardInitialCenter.x + translation.x, y: cardInitialCenter.y)
@@ -62,7 +62,24 @@ class CardsViewController: UIViewController {
         }
         // In the end state
         else if sender.state == .ended {
-
+            if translation.x > 50 {
+                UIView.animate(withDuration: 0.3, animations: {
+                    self.cardImageView.transform = CGAffineTransform.identity
+                    self.cardImageView.center = CGPoint(x: self.cardInitialCenter.x + self.screenSize.width, y: self.cardInitialCenter.y)
+                })
+            }
+            else if translation.x < -50 {
+                UIView.animate(withDuration: 0.3, animations: {
+                    self.cardImageView.transform = CGAffineTransform.identity
+                    self.cardImageView.center = CGPoint(x: -self.cardInitialCenter.x, y: self.cardInitialCenter.y)
+                })
+            }
+            else {
+                UIView.animate(withDuration: 0.3, animations: {
+                    self.cardImageView.transform = CGAffineTransform.identity
+                    self.cardImageView.center = self.cardInitialCenter
+                })
+            }
         }
 
     }
