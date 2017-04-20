@@ -8,8 +8,8 @@ Time spent: ? hours spent in total
 
 The following **required** milestone is completed:
 
-- [ ] Setup
-- [ ] Draggable Card
+- [X] Setup
+- [X] Draggable Card
 - [ ] Rotation on Drag
 - [ ] Final Card Animation
 - [ ] Basic Modal Transition
