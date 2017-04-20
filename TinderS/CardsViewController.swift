@@ -34,6 +34,25 @@ class CardsViewController: UIViewController {
     }
     */
 
-    @IBAction func didPanCard(_ sender: Any) {
+    @IBAction func didPanCard(_ sender: UIPanGestureRecognizer) {
+        let translation = sender.translation(in: view)
+
+        // In the began state
+        if sender.state == .began {
+            cardInitialCenter = sender.view?.center
+        }
+        // In the changed state
+        else if sender.state == .changed {
+            cardImageView.center = CGPoint(x: cardInitialCenter.x + translation.x, y: cardInitialCenter.y + translation.y)
+
+            cardImageView.transform = CGAffineTransform.identity
+
+            cardImageView.transform = cardImageView.transform.rotated(by:translation.x / 100)
+        }
+        // In the end state
+        else if sender.state == .ended {
+
+        }
+
     }
 }
