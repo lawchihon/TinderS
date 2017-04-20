@@ -10,10 +10,15 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
+    @IBOutlet weak var cardImageView: UIImageView!
+    var cardImage: UIImage?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        //cardImageView = UIImageView(image: cardImage)
+        cardImageView.image = cardImage
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,4 +37,7 @@ class ProfileViewController: UIViewController {
     }
     */
 
+    @IBAction func didTapNavbar(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }

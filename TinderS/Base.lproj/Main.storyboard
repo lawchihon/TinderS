@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,17 +22,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nav_bar" translatesAutoresizingMaskIntoConstraints="NO" id="6Vx-BE-Uk1">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nav_bar" translatesAutoresizingMaskIntoConstraints="NO" id="6Vx-BE-Uk1">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="6Vx-BE-Uk1" secondAttribute="height" multiplier="75:13" id="Vd4-dC-Xmt"/>
-                                </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="action_buttons" translatesAutoresizingMaskIntoConstraints="NO" id="kda-nd-Fec">
-                                <rect key="frame" x="16" y="559" width="343" height="108"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="kda-nd-Fec" secondAttribute="height" multiplier="343:108" id="oSA-8I-ATm"/>
-                                </constraints>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="action_buttons" translatesAutoresizingMaskIntoConstraints="NO" id="kda-nd-Fec">
+                                <rect key="frame" x="16" y="549" width="343" height="108"/>
                             </imageView>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ryan" translatesAutoresizingMaskIntoConstraints="NO" id="r4y-rN-BBi">
                                 <rect key="frame" x="62" y="115" width="250" height="250"/>
@@ -44,6 +37,7 @@
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="Pf9-Gv-CJ1" appends="YES" id="c6s-6w-AxJ"/>
+                                    <outletCollection property="gestureRecognizers" destination="akS-cz-xAM" appends="YES" id="AeS-u9-zLi"/>
                                 </connections>
                             </imageView>
                         </subviews>
@@ -55,7 +49,7 @@
                             <constraint firstItem="6Vx-BE-Uk1" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="PkM-DA-e17"/>
                             <constraint firstAttribute="trailing" secondItem="6Vx-BE-Uk1" secondAttribute="trailing" id="iaN-4G-fqy"/>
                             <constraint firstItem="kda-nd-Fec" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="pZh-DL-dwY"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="kda-nd-Fec" secondAttribute="bottom" id="sSK-02-I4j"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="kda-nd-Fec" secondAttribute="bottom" constant="10" id="sSK-02-I4j"/>
                             <constraint firstItem="r4y-rN-BBi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="t5u-yE-rqH"/>
                         </constraints>
                     </view>
@@ -69,13 +63,70 @@
                         <action selector="didPanCard:" destination="BYZ-38-t0r" id="kJA-F9-bzi"/>
                     </connections>
                 </panGestureRecognizer>
+                <tapGestureRecognizer id="akS-cz-xAM">
+                    <connections>
+                        <action selector="didTagCard:" destination="BYZ-38-t0r" id="GNS-G8-wyV"/>
+                        <segue destination="Ro0-p4-Oot" kind="showDetail" identifier="profileViewSegue" id="5jv-WX-9vr"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
+        </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="8Sy-gw-UJ3">
+            <objects>
+                <viewController id="Ro0-p4-Oot" customClass="ProfileViewController" customModule="TinderS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FeN-ra-MAM"/>
+                        <viewControllerLayoutGuide type="bottom" id="qsr-4L-RLS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Roh-3s-aK4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nav_bar2" translatesAutoresizingMaskIntoConstraints="NO" id="p21-Gx-UXW">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="nZI-qL-Q0D" appends="YES" id="zQd-Uo-anu"/>
+                                </connections>
+                            </imageView>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hS0-5M-hkd">
+                                <rect key="frame" x="62" y="115" width="250" height="250"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="3pD-oH-aa6"/>
+                                    <constraint firstAttribute="height" constant="250" id="CzM-4H-QVQ"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="hS0-5M-hkd" firstAttribute="top" secondItem="p21-Gx-UXW" secondAttribute="bottom" constant="50" id="0ad-lq-w9l"/>
+                            <constraint firstItem="p21-Gx-UXW" firstAttribute="leading" secondItem="Roh-3s-aK4" secondAttribute="leading" id="8Al-b5-Bym"/>
+                            <constraint firstItem="p21-Gx-UXW" firstAttribute="top" secondItem="Roh-3s-aK4" secondAttribute="top" id="D1k-ya-YGa"/>
+                            <constraint firstAttribute="trailing" secondItem="p21-Gx-UXW" secondAttribute="trailing" id="GMb-m7-bSM"/>
+                            <constraint firstItem="hS0-5M-hkd" firstAttribute="centerX" secondItem="Roh-3s-aK4" secondAttribute="centerX" id="h1G-8f-cdf"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cardImageView" destination="hS0-5M-hkd" id="0On-il-J3Z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o9A-3n-mZ2" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="nZI-qL-Q0D">
+                    <connections>
+                        <action selector="didTapNavbar:" destination="Ro0-p4-Oot" id="chs-Dy-yfh"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1098" y="139"/>
         </scene>
     </scenes>
     <resources>
         <image name="action_buttons" width="320" height="108"/>
         <image name="nav_bar" width="320" height="65"/>
+        <image name="nav_bar2" width="320" height="65"/>
         <image name="ryan" width="449" height="514"/>
     </resources>
 </document>

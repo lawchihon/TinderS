@@ -83,4 +83,16 @@ class CardsViewController: UIViewController {
         }
 
     }
+
+    @IBAction func didTagCard(_ sender: Any) {
+        self.performSegue(withIdentifier: "profileViewSegue", sender: "")
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "profileViewSegue" {
+            let destination = segue.destination as! ProfileViewController
+            destination.cardImage = self.cardImageView.image
+            //destination.cardImageView = UIImageView(image: self.cardImageView.image)
+        }
+    }
 }
