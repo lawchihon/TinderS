@@ -11,7 +11,7 @@ The following **required** milestone is completed:
 - [X] Setup
 - [X] Draggable Card
 - [X] Rotation on Drag
-- [ ] Final Card Animation
+- [X] Final Card Animation
 - [ ] Basic Modal Transition
 
 The following **optional** milestone are implemented:
