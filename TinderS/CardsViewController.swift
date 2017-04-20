@@ -11,6 +11,7 @@ import UIKit
 class CardsViewController: UIViewController {
     @IBOutlet weak var cardImageView: UIImageView!
     var cardInitialCenter: CGPoint!
+    var rotation: CGFloat!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,21 +34,31 @@ class CardsViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
 
     @IBAction func didPanCard(_ sender: UIPanGestureRecognizer) {
         let translation = sender.translation(in: view)
-
+        
         // In the began state
         if sender.state == .began {
-            cardInitialCenter = sender.view?.center
+            cardInitialCenter = cardImageView.center
+
+            if sender.location(in: view).y > cardInitialCenter.y {
+                rotation = -0.01
+            }
+            else {
+                rotation = 0.01
+            }
+            
         }
         // In the changed state
         else if sender.state == .changed {
-            cardImageView.center = CGPoint(x: cardInitialCenter.x + translation.x, y: cardInitialCenter.y + translation.y)
 
             cardImageView.transform = CGAffineTransform.identity
 
-            cardImageView.transform = cardImageView.transform.rotated(by:translation.x / 100)
+            cardImageView.center = CGPoint(x: cardInitialCenter.x + translation.x, y: cardInitialCenter.y)
+
+            cardImageView.transform = cardImageView.transform.rotated(by: rotation * translation.x)
         }
         // In the end state
         else if sender.state == .ended {

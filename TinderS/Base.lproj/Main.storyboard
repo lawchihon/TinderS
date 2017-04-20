@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,14 +25,23 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nav_bar" translatesAutoresizingMaskIntoConstraints="NO" id="6Vx-BE-Uk1">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="6Vx-BE-Uk1" secondAttribute="height" multiplier="75:13" id="Vd4-dC-Xmt"/>
+                                </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="action_buttons" translatesAutoresizingMaskIntoConstraints="NO" id="kda-nd-Fec">
                                 <rect key="frame" x="16" y="559" width="343" height="108"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="kda-nd-Fec" secondAttribute="height" multiplier="343:108" id="oSA-8I-ATm"/>
+                                </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ryan" translatesAutoresizingMaskIntoConstraints="NO" id="r4y-rN-BBi">
-                                <rect key="frame" x="67" y="111" width="240" height="257"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ryan" translatesAutoresizingMaskIntoConstraints="NO" id="r4y-rN-BBi">
+                                <rect key="frame" x="62" y="115" width="250" height="250"/>
                                 <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="58c-Qk-xxV"/>
+                                    <constraint firstAttribute="width" constant="250" id="c4P-0F-Ers"/>
+                                </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="Pf9-Gv-CJ1" appends="YES" id="c6s-6w-AxJ"/>
                                 </connections>
@@ -41,10 +51,12 @@
                         <constraints>
                             <constraint firstItem="6Vx-BE-Uk1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="5f0-lt-IFs"/>
                             <constraint firstAttribute="trailingMargin" secondItem="kda-nd-Fec" secondAttribute="trailing" id="HME-IJ-ey9"/>
+                            <constraint firstItem="r4y-rN-BBi" firstAttribute="top" secondItem="6Vx-BE-Uk1" secondAttribute="bottom" constant="50" id="OwK-gS-3fi"/>
                             <constraint firstItem="6Vx-BE-Uk1" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="PkM-DA-e17"/>
                             <constraint firstAttribute="trailing" secondItem="6Vx-BE-Uk1" secondAttribute="trailing" id="iaN-4G-fqy"/>
                             <constraint firstItem="kda-nd-Fec" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="pZh-DL-dwY"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="kda-nd-Fec" secondAttribute="bottom" id="sSK-02-I4j"/>
+                            <constraint firstItem="r4y-rN-BBi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="t5u-yE-rqH"/>
                         </constraints>
                     </view>
                     <connections>
